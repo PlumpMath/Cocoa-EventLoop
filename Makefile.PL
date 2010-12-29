@@ -4,6 +4,7 @@ assertos 'MacOSX';
 
 name 'Cocoa-EventLoop';
 all_from 'lib/Cocoa/EventLoop.pm';
+readme_from 'lib/Cocoa/EventLoop.pm';
 
 test_requires 'Test::More' => '0.88';
 test_requires 'Test::TCP' => '1.11';
@@ -13,9 +14,6 @@ auto_set_repository;
 
 use_ppport '3.19';
 cc_append_to_libs '-lobjc';
-
-# weird fix for OSX system perl
-cc_append_to_ccflags '-D__QUICKDRAWAPI__';
 
 makemaker_args->{dynamic_lib} = {
     OTHERLDFLAGS => '-framework Foundation',
